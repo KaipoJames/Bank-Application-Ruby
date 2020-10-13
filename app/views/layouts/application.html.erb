@@ -24,12 +24,24 @@
           <%= nav_link "Home", root_path %>
           <%= nav_link "About", "/about" %>
           <%= nav_link "Contact", "/contact" %>
+          <%= nav_link "Accounts", accounts_path %>
         </ul>
 
       </div>
     </nav>
 
     <main role="main" class="container">
+      
+      <div id="flash-messages" class="row">
+        <% flash.each do |name, msg| %>
+          <div class="alert alert-<%= name == 'notice' ? 'primary' : 'danger' %> alert-dismissable col" role="alert">
+            <%= msg %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <% end %>
+      </div>
 
       <div class="starter-template">
         <%= yield %>

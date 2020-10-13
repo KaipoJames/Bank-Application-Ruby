@@ -1,0 +1,10 @@
+<%= bootstrap_form_with(model: @account, local: true, layout: :horizontal,
+                label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
+    <%= f.alert_message "Please Fix The Errors Below.", error_summary: false %>
+    <%= f.text_field :account_number %>
+    <%= f.text_field :account_type %>
+    <%= f.number_field :balance %>
+    <%= f.form_group do %>
+        <%= f.primary @account.persisted? ? "Update Account" : "Create Account" %>
+    <% end %>
+<% end %>

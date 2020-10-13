@@ -1,0 +1,5 @@
+<div id="account_<%= account.id %>" class="account">
+    <p><strong>Account Number:</strong> <%= link_to_unless_current account.account_number, account %> </p>
+    <p><strong>Type:</strong> <%= account.account_type %> </p>
+    <p><strong>Balance:</strong> <%= account.balance %> </p>
+</div>

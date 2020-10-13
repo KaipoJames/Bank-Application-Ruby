@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :accounts
+  
   root to: 'home#index'
   get "about" => 'home#about'
   get "contact" => 'home#contact'
