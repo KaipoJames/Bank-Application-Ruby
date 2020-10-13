@@ -1,14 +1,17 @@
 class AccountsController < ApplicationController
   before_action :load_account, except: [:index, :new, :create]
   
+  # GET, /accounts
   def index
     @accounts = Account.all
   end
   
+  # GET, /accounts/new
   def new
     @account = Account.new
   end
   
+  # POST, /accounts
   def create
     @account = Account.new account_params
     if @account.save
@@ -18,12 +21,15 @@ class AccountsController < ApplicationController
     end
   end
   
+  # GET, accounts/:id
   def show
   end
   
+  # GET, accounts/:id/edit
   def edit
   end
   
+  # PATCH/PUT, accounts/:id
   def update 
     if @account.update update_account_params
       redirect_to @account, notice: "Task Updated"
@@ -32,6 +38,7 @@ class AccountsController < ApplicationController
     end
   end
   
+  # DELETE, accounts/:id
   def destroy
     @account.destroy
     redirect_to accounts_path, alert: "Task Deleted"
