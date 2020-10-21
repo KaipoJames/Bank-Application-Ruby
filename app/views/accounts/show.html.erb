@@ -2,6 +2,7 @@
 
 <%= render @account %>
 
+<%= link_to "Transactions", account_transactions_path(@account) %> |
 <%= link_to "Edit", edit_account_path(@account) %> |
 <%= link_to "Delete", @account, method: :Delete, data: {confirm: "Are you sure?" } %> | |
 <%= link_to "All Accounts", accounts_path %> 

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :accounts
+
+  resources :accounts do
+    resources :transactions
+  end
+  
+  # accounts/4/transactions/10
   
   root to: 'home#index'
   get "about" => 'home#about'
