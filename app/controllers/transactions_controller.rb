@@ -19,7 +19,8 @@ class TransactionsController < ApplicationController
     end
   end
   
-  
+  def show
+  end
   
   private
   
