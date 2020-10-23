@@ -33,6 +33,11 @@ class TransactionsController < ApplicationController
     end
   end
   
+  def destroy
+    @transaction.destroy
+    redirect_to account_transactions_path(@account)
+  end
+  
   private
   
   def load_account
