@@ -25,6 +25,14 @@ class TransactionsController < ApplicationController
   def edit
   end
   
+  def update
+    if @transaction.update transaction_params
+      redirect_to [@account,@transaction], notice: "Note updated."
+    else
+      render :edit
+    end
+  end
+  
   private
   
   def load_account
