@@ -1,0 +1,9 @@
+<h1>Transactions: </h1>
+ <% #@transactions.each do |transaction| %>
+<div id="transaction_<%= transaction.id %>" class="transaction">
+    <p>Transaction ID: <%= link_to_unless_current transaction.id, account_transaction_path(@account,transaction) %></p>
+    <p>Type: <%= transaction.transaction_type %></p>
+    <p>Amount: <%= transaction.amount %></p>
+    <p>Description: <%= transaction.description %></p>
+</div>
+<% #end %>

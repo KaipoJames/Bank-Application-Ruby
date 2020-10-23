@@ -1,0 +1,7 @@
+<% title @transaction.id %>
+
+<%= render @transaction %>
+
+<%= link_to "Edit", edit_account_transaction_path(@account,@transaction) %> | 
+<%= link_to "Delete", account_transaction_path(@account,@transaction), method: :delete, data: {confirm: "Are you sure?"} %> |
+<%= link_to "All Transactions", account_transactions_path(@account) %>
