@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'users/index'
+  resources :users
   resources :accounts do
     resources :transactions
   end
