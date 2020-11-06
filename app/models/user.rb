@@ -3,6 +3,6 @@ class User < ApplicationRecord
     
     validates :email, format: { with: /@/, message: "Must have an @" }, uniqueness: true
     validates :first_name, presence: true
-    validates :last_name, presense: true
+    validates :last_name, presence: true
     validates :username, presence: true
 end

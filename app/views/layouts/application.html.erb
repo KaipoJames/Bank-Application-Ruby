@@ -26,8 +26,16 @@
           <%= nav_link "Contact", "/contact" %>
           <%= nav_link "Accounts", accounts_path %>
         </ul>
-
+        <ul class="navbar-nav pull-right mr-auto">
+          <% if session[:user_id] != nil %>
+            <%= nav_link "Logout", logout_path %>
+          <% else %>
+            <%= nav_link "Sign Up", signup_path %>
+            <%= nav_link "Login", login_path %>
+          <% end %>
+        </ul>
       </div>
+      
     </nav>
 
     <main role="main" class="container">
