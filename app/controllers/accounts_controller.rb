@@ -1,9 +1,10 @@
 class AccountsController < ApplicationController
+  before_action :authenticate
   before_action :load_account, except: [:index, :new, :create]
   
   # GET, /accounts
   def index
-    @accounts = Account.all
+    @accounts = current_user.accounts
   end
   
   # GET, /accounts/new
@@ -14,6 +15,7 @@ class AccountsController < ApplicationController
   # POST, /accounts
   def create
     @account = Account.new account_params
+    @account.user = current_user
     if @account.save
       redirect_to accounts_path, notice: "Account created!"
     else
@@ -46,7 +48,7 @@ class AccountsController < ApplicationController
   
   private 
   def load_account
-    @account = Account.find params[:id]
+    @account = current_user.accounts.find params[:id]
   end
   
   def account_params

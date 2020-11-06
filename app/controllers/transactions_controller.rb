@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+  before_action :authenticate
   before_action :load_account
   before_action :load_transaction, except: [:index, :new, :create]
   
@@ -41,7 +42,7 @@ class TransactionsController < ApplicationController
   private
   
   def load_account
-    @account = Account.find params[:account_id]
+    @account = current_user.accounts.find params[:account_id]
   end
   
   def load_transaction

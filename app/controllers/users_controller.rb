@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate, except: [:new, :create]
+  
   # Make page to display all users(Admin Page Only)
   def index
   end
@@ -10,10 +12,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
+      login(@user)
       redirect_to root_path, notice: "You are now registered!"
     else
       render :new
     end
+  end
+  
+  def show
+    @user = current_user
   end
   
   private
