@@ -30,7 +30,7 @@
         </ul>
         <ul class="navbar-nav pull-right mr-auto">
           <% if current_user %>
-          <%= nav_link current_user.first_name + " " + current_user.last_name, current_user %>
+          <%= nav_link "My Profile", current_user %>
             <%= nav_link "Logout", logout_path %>
           <% else %>
             <%= nav_link "Sign Up", signup_path %>

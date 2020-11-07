@@ -23,10 +23,34 @@ class UsersController < ApplicationController
     @user = current_user
   end
   
+  def edit
+    @user = current_user
+  end
+  
+  def update
+    @user = current_user
+    if @user.update update_user_params
+      redirect_to @user, notice: "Account Profile Updated"
+    else
+      render :edit
+    end
+  end
+  
+  def destroy
+    @user = current_user
+    logout
+    @user.destroy
+    redirect_to root_path, alert: "Account Profile Deleted"
+  end
+  
   private
   
   def user_params
     params.require(:user).permit(:first_name,:last_name,:email,:phone_number,:username,:password,:password_confirmation)
+  end
+  
+  def update_user_params
+    params.require(:user).permit(:email, :phone_number, :username, :password)
   end
   
 end

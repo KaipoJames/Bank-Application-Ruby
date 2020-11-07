@@ -2,16 +2,4 @@
 
 <h1 class="text">Register Your Account</h1>
 
-<%= bootstrap_form_with(model: @user, local: true ) do |f| %>
-    <%= f.alert_message "Please fix the errors below.", error_summary: false %>
-    <%= f.text_field :first_name, label: "First Name" %>
-    <%= f.text_field :last_name, label: "Last Name" %>
-    <%= f.email_field :email, label: "Email" %>
-    <%= f.text_field :phone_number, label: "Phone Number" %>
-    <%= f.text_field :username, label: "Username" %>
-    <%= f.password_field :password, label: "Password" %>
-    <%= f.password_field :password_confirmation, label: "Confirm Password" %>
-    <%= f.form_group do %>
-        <%= f.primary "Register" %>
-    <% end %>
-<% end %>
+<%= render 'form' %>
