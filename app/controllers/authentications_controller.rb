@@ -9,7 +9,12 @@ class AuthenticationsController < ApplicationController
             redirect_to root_path, notice: "You are logged in."
         else
             user = User.new_from_hash user_hash
-            user.save!
+            if user.save
+               redirect_to root_path, notice: "Account Created"
+            else 
+                session[:user_hash] = user_hash
+                redirect_to signup_path, notice: "Please fill out the missing information."      
+            end
         end
     end
     
@@ -22,7 +27,8 @@ class AuthenticationsController < ApplicationController
         hash[:uid] = auth_hash['uid']
         hash[:provider] = auth_hash['provider']
         if auth_hash['info']
-            hash[:name] = auth_hash['info']['name']
+            hash[:first_name] = auth_hash['info']['first_name']
+            hash[:last_name] = auth_hash['info']['last_name']
             hash[:email] = auth_hash['info']['email']
         end
         if auth_hash['credentials']
