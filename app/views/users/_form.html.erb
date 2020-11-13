@@ -5,8 +5,10 @@
     <%= f.email_field :email, label: "Email" %>
     <%= f.text_field :phone_number, label: "Phone Number" %>
     <%= f.text_field :username, label: "Username" %>
-    <%= f.password_field :password, label: "Password" %>
-    <%= f.password_field :password_confirmation, label: "Confirm Password" %>
+    <% if @user.has_password? %>
+        <%= f.password_field :password, label: "Password" %>
+        <%= f.password_field :password_confirmation, label: "Confirm Password" %>
+    <% end %>
     <%= f.form_group do %>
         
         <%= f.primary session[:user_id] != nil ? "Update" : "Register" %>

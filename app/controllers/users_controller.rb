@@ -15,8 +15,18 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new user_params
+    if session[:user_hash]
+      @user = User.new_from_hash(session[:user_hash])
+      @user.first_name = user_params[:first_name]
+      @user.last_name = user_params[:last_name]
+      @user.email = user_params[:email]
+      @user.username = user_params[:username]
+    else
+      @user = User.new user_params
+    end
+    
     if @user.save
+      session[:user_hash] = nil
       login(@user)
       redirect_to root_path, notice: "You are now registered!"
     else
