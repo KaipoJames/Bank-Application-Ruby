@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :accounts
+    has_many :credit_cards
     
     validates :email, format: { with: /@/, message: "Must have an @" }, uniqueness: true
     validates :first_name, presence: true

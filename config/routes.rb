@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'credit_cards/index'
   get "signup" => 'users#new'
   get "login" => 'sessions#new'
   get "logout" => 'sessions#destroy'
@@ -12,6 +11,7 @@ Rails.application.routes.draw do
   resources :accounts do
     resources :transactions
   end
+  resources :credit_cards
   
   # accounts/4/transactions/10
   

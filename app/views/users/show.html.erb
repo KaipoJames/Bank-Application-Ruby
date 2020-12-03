@@ -2,6 +2,7 @@
 
 <h1 class="title"> <%= current_user.first_name + " " + current_user.last_name %> </h1>
 <%= link_to "Current Accounts", accounts_path, class: "btn btn-primary" %>
+<%= link_to "Current Credit Cards", credit_cards_path, class: "btn btn-primary" %>
 
 <h2 class="profile-account-info-title">Bank Account Information</h2>
 <ul class="profile-list">
@@ -13,5 +14,5 @@
     <li class="profile-list-item"> Date Joined: <%= current_user.created_at %> </li>
 </ul>
 
-<%= link_to "Edit Account", edit_user_path(@user) %> | 
-<%= link_to "Delete Account", @user, method: :delete, data: {confirm: "Are you sure?"} %> 
+<%= link_to "Edit Account", edit_user_path(@user) %> |
+<%= link_to "Delete Account", @user, method: :delete, data: {confirm: "Are you sure?"} %>
