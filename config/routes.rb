@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'credit_cards/index'
   get "signup" => 'users#new'
   get "login" => 'sessions#new'
   get "logout" => 'sessions#destroy'
