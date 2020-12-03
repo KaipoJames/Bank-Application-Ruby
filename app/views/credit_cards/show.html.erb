@@ -1,0 +1,7 @@
+<% title "Credit Card" %>
+
+<%= render @credit_card %>
+
+<%= link_to "Edit", edit_credit_card_path(@credit_card) %> |
+<%= link_to "Delete", @credit_card, method: :Delete, data: {confirm: "Are you sure?" } %> | |
+<%= link_to "All Credit Cards", credit_cards_path %>

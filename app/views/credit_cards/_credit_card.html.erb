@@ -1,0 +1,5 @@
+<div id="account_<%= credit_card.id %>" class="account">
+    <p><strong>Card Number:</strong> <%= link_to_unless_current credit_card.number, credit_card %> </p>
+    <p><strong>Security Code:</strong> <%= credit_card.security_code %> </p>
+    <p><strong>Expiration Date:</strong> <%= credit_card.expiration_date %> </p>
+</div>
