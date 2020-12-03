@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'image_elements/index'
   get "signup" => 'users#new'
   get "login" => 'sessions#new'
   get "logout" => 'sessions#destroy'
@@ -9,7 +10,9 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :accounts do
-    resources :transactions
+    resources :transactions do
+      resources :image_elements
+    end
   end
   resources :credit_cards
   
