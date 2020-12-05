@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_091727) do
+ActiveRecord::Schema.define(version: 2020_12_03_091448) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "account_number"
@@ -51,13 +51,6 @@ ActiveRecord::Schema.define(version: 2020_12_03_091727) do
     t.integer "user_id"
   end
 
-  create_table "image_elements", force: :cascade do |t|
-    t.integer "page_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["page_id"], name: "index_image_elements_on_page_id"
-  end
-
   create_table "transactions", force: :cascade do |t|
     t.string "transaction_type"
     t.integer "account_id"
@@ -82,5 +75,4 @@ ActiveRecord::Schema.define(version: 2020_12_03_091727) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "image_elements", "pages"
 end
