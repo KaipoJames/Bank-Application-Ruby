@@ -6,7 +6,7 @@ require 'rails/test_help'
 require 'minitest/reporters'
 
 Minitest::Reporters.use!(Minitest::Reporters::ProgressReporter.new(color: true),ENV,Minitest.backtrace_filter)
-ActiveRecord::Migration.maintain_test_schema!
+#ActiveRecord::Migration.maintain_test_schema!
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
